@@ -200,6 +200,79 @@ $.ajax
 </tr>
 </tbody></table>
 
+          <h1 id="(web)-clients">(web) Clients</h1>
+
+<h2 id="accepting-the-regulations">Accepting the regulations</h2>
+
+<p>This API provides a call to mark regulations as accepted.
+<aside class="notice">
+Please note, that the regulations are accepted per role, not per user!
+It means, that if a user wants to both coach and be a client, one must accept two types of regulations.
+</aside></p>
+
+<blockquote>
+<p>To accept regulations for (authenticated previously) user (client) of ID 5:</p>
+</blockquote>
+<pre><code class="highlight coffeescript"><span class="nx">$</span><span class="p">.</span><span class="na">ajax</span>
+  <span class="na">dataType</span><span class="o">:</span> <span class="s">"json"</span>
+  <span class="na">type</span><span class="o">:</span> <span class="s">"put"</span>
+  <span class="na">data</span><span class="o">:</span>
+  <span class="na">url</span><span class="o">:</span> <span class="s">"http://users.allforbody.pl/clients/5/accept_regulations"</span>
+  <span class="na">success</span><span class="o">:</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">jqXHR</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="nx">processSomehow</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>To accept regulations for (authenticated previously) coach of ID 5:</p>
+</blockquote>
+<pre><code class="highlight coffeescript"><span class="nx">$</span><span class="p">.</span><span class="na">ajax</span>
+  <span class="na">dataType</span><span class="o">:</span> <span class="s">"json"</span>
+  <span class="na">type</span><span class="o">:</span> <span class="s">"put"</span>
+  <span class="na">data</span><span class="o">:</span>
+    <span class="na">role</span><span class="o">:</span> <span class="s">'coach'</span>
+  <span class="na">url</span><span class="o">:</span> <span class="s">"http://users.allforbody.pl/clients/5/accept_regulations"</span>
+  <span class="na">success</span><span class="o">:</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">jqXHR</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="nx">processSomehow</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT http://users.allforbody.pl/clients/:ID/accept_regulations</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>role</td>
+<td>&ldquo;client&rdquo;</td>
+<td>The role for which the regulations are accepted.</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-codes">Response codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Regulations accepted.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>User role does not exist (see errors key in json).</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
