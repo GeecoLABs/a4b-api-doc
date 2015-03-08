@@ -46,7 +46,6 @@ $.ajax
 ## Create price list
 It allows for creating price list for support.
 
-
 > To create a new price list, perform:
 ```coffee
 $.ajax
