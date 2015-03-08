@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - web-accounting
+  - web-clients
   - errors
 
 search: true
