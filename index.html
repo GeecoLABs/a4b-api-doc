@@ -87,6 +87,10 @@ User (coach) must be authorized (logged in) before running this API queries.
     <span class="p">}</span>
     <span class="ss">commission: </span><span class="mi">20</span>
     <span class="ss">available_currencies: </span><span class="p">[</span><span class="no">PLN</span><span class="p">,</span> <span class="no">USD</span><span class="p">,</span> <span class="no">NOK</span><span class="p">]</span>
+    <span class="ss">estimated_amounts: </span><span class="p">{</span>
+        <span class="ss">knowledge: </span><span class="mi">20</span>
+        <span class="ss">motivaiton: </span><span class="mi">30</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 </code></pre>
@@ -125,7 +129,12 @@ User (coach) must be authorized (logged in) before running this API queries.
     <span class="ss">currency: </span><span class="no">PLN</span>
     <span class="ss">commission: </span><span class="mi">20</span>
     <span class="ss">accepted_at: </span><span class="o">&lt;&lt;</span><span class="no">timestamp</span><span class="o">&gt;&gt;</span><span class="sh">
-    rejected_at: nil
+    rejected_at: nil,
+    estimated_amounts: {
+        knowledge: 20,
+        motivation: 30
+    }
+
 }
 
 </span></code></pre>
@@ -154,6 +163,9 @@ $.ajax
        api_sms_message: 2
     welcome: true
     message: &quot;Witaj, będzie się nam fajnie trenowało, yno pierwyj kasa&quot;
+    estimated_amounts:
+       knowledge: 20
+       motivation: 30
   url: &quot;http://users.allforbody.pl/accounting/price_lists&quot;
   success: (data, status, jqXHR) -&gt;
     processSomehow(data)
