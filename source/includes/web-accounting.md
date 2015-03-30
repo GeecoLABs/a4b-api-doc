@@ -37,6 +37,10 @@ $.ajax
     }
     commission: 20
     available_currencies: [PLN, USD, NOK]
+    estimated_amounts: {
+        knowledge: 20
+        motivaiton: 30
+    }
 }
 
 ```
@@ -75,7 +79,12 @@ $.ajax
     currency: PLN
     commission: 20
     accepted_at: <<timestamp>>
-    rejected_at: nil
+    rejected_at: nil,
+    estimated_amounts: {
+        knowledge: 20,
+        motivation: 30
+    }
+
 }
 
 ```
@@ -103,6 +112,9 @@ $.ajax
        api_sms_message: 2
     welcome: true
     message: "Witaj, będzie się nam fajnie trenowało, yno pierwyj kasa"
+    estimated_amounts:
+       knowledge: 20
+       motivation: 30
   url: "http://users.allforbody.pl/accounting/price_lists"
   success: (data, status, jqXHR) ->
     processSomehow(data)
