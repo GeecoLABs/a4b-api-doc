@@ -35,6 +35,7 @@ $.ajax
         api_sms_message: 2.0
         currency: NOK
     }
+    commission: 20
     available_currencies: [PLN, USD, NOK]
 }
 
@@ -72,6 +73,7 @@ $.ajax
     client_wall_message: 2.0
     api_sms_message: 2.0
     currency: PLN
+    commission: 20
     accepted_at: <<timestamp>>
     rejected_at: nil
 }
