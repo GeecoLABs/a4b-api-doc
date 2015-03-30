@@ -113,7 +113,7 @@ $.ajax
     welcome: true
     message: "Witaj, będzie się nam fajnie trenowało, yno pierwyj kasa"
     estimated_amounts:
-       knowledge: 20
+       knowledge: 20,
        motivation: 30
   url: "http://users.allforbody.pl/accounting/price_lists"
   success: (data, status, jqXHR) ->
@@ -141,15 +141,24 @@ Standard price lists
 Parameter | Default | Description
 --------- | ------- | -----------
 support_id | null | Id of the support between coach and client.
+currency | null | Currency for prices
 prices/calendar_task | null |
 prices/calendar_note | null |
 prices/calendar_comment | null |
 prices/client_wall_message | null |
 prices/api_sms_message | null |
+welcome | false | Decides if this is first email for client or not (different design)
+message | null | Custom message from coach to client
+estimated_amount | null | hash of custom key - values to store
 
 Fixed price lists
 
 Parameter | Default | Description
 --------- | ------- | -----------
 support_id | null | Id of the support between coach and client.
+currency | null | Currency for prices
 fixed_price | null | The amount in users currency, eg. 125.0
+welcome | false | Decides if this is first email for client or not (different design)
+message | null | Custom message from coach to client
+estimated_amount | null | hash of custom key - values to store
+
