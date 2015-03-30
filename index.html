@@ -92,9 +92,46 @@ User (coach) must be authorized (logged in) before running this API queries.
 
 <p><code class="prettyprint">GET http://users.allforbody.pl/accounting/default_price_list.json</code></p>
 
+<h2 id="get-price-list-for-support">Get price list for support</h2>
+
+<p>This is used to obtain the price list for the given support, ie. for a given coach-client relation.</p>
+
+<blockquote>
+<p>To obtain the default price list, perform:</p>
+</blockquote>
+<pre><code class="highlight coffeescript"><span class="nx">$</span><span class="p">.</span><span class="na">ajax</span>
+  <span class="na">dataType</span><span class="o">:</span> <span class="s">"json"</span>
+  <span class="na">type</span><span class="o">:</span> <span class="s">"get"</span>
+  <span class="na">data</span><span class="o">:</span>
+    <span class="na">support_id</span><span class="o">:</span> <span class="mi">8</span>
+  <span class="na">url</span><span class="o">:</span> <span class="s">"http://users.allforbody.pl/accounting/support_price_list.json"</span>
+  <span class="na">success</span><span class="o">:</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">jqXHR</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="nx">processSomehow</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="highlight ruby"><span class="p">{</span>
+    <span class="ss">id: </span><span class="mi">12</span>
+    <span class="ss">calendar_task: </span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span>
+    <span class="ss">calendar_note: </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span>
+    <span class="ss">calendar_comment: </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span>
+    <span class="ss">client_wall_message: </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span>
+    <span class="ss">api_sms_message: </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span>
+    <span class="ss">accepted_at: </span><span class="o">&lt;&lt;</span><span class="no">timestamp</span><span class="o">&gt;&gt;</span><span class="sh">
+    rejected_at: nil
+}
+
+</span></code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://users.allforbody.pl/accounting/support_price_list.json</code></p>
+
 <h2 id="create-price-list">Create price list</h2>
 
-<p>It allows for creating price list for support.</p>
+<p>It allows for creating price list for support. Custom message can be passed as :message. The welcome (true/false) decides on the email styling.</p>
 
 <blockquote>
 <p>To create a new price list, perform:
@@ -110,6 +147,8 @@ $.ajax
        calendar_comment: 2,
        client_wall_message: 2,
        api_sms_message: 2
+    welcome: true
+    message: &quot;Witaj, będzie się nam fajnie trenowało, yno pierwyj kasa&quot;
   url: &quot;http://users.allforbody.pl/accounting/price_lists&quot;
   success: (data, status, jqXHR) -&gt;
     processSomehow(data)
