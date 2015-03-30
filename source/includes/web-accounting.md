@@ -81,7 +81,7 @@ $.ajax
 
 
 ## Create price list
-It allows for creating price list for support.
+It allows for creating price list for support. Custom message can be passed as :message. The welcome (true/false) decides on the email styling.
 
 > To create a new price list, perform:
 ```coffee
@@ -96,10 +96,13 @@ $.ajax
        calendar_comment: 2,
        client_wall_message: 2,
        api_sms_message: 2
+    welcome: true
+    message: "Witaj, będzie się nam fajnie trenowało, yno pierwyj kasa"
   url: "http://users.allforbody.pl/accounting/price_lists"
   success: (data, status, jqXHR) ->
     processSomehow(data)
 ```
+
 
 
 ### HTTP Request
