@@ -42,6 +42,43 @@ $.ajax
 
 `GET http://users.allforbody.pl/accounting/default_price_list.json`
 
+## Get price list for support
+
+This is used to obtain the price list for the given support, ie. for a given coach-client relation.
+
+> To obtain the default price list, perform:
+
+```coffee
+$.ajax
+  dataType: "json"
+  type: "get"
+  data:
+    support_id: 8
+  url: "http://users.allforbody.pl/accounting/support_price_list.json"
+  success: (data, status, jqXHR) ->
+    processSomehow(data)
+```
+
+> The above command returns JSON structured like this:
+
+```ruby
+{
+    id: 12
+    calendar_task: 5.0
+    calendar_note: 2.0
+    calendar_comment: 1.0
+    client_wall_message: 2.0
+    api_sms_message: 2.0
+    accepted_at: <<timestamp>>
+    rejected_at: nil
+}
+
+```
+
+### HTTP Request
+
+`GET http://users.allforbody.pl/accounting/support_price_list.json`
+
 
 ## Create price list
 It allows for creating price list for support.
