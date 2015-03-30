@@ -33,7 +33,9 @@ $.ajax
         calendar_comment: 1.0
         client_wall_message: 2.0
         api_sms_message: 2.0
+        currency: NOK
     }
+    available_currencies: [PLN, USD, NOK]
 }
 
 ```
@@ -69,6 +71,7 @@ $.ajax
     calendar_comment: 1.0
     client_wall_message: 2.0
     api_sms_message: 2.0
+    currency: PLN
     accepted_at: <<timestamp>>
     rejected_at: nil
 }
